@@ -1,7 +1,9 @@
+
+
 const AppliedJobs = () => {
     return (
         <div>
-           <h1>jobs</h1>
+           <h1></h1>
         </div>
     );
 };
