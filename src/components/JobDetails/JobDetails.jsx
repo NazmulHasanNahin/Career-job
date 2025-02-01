@@ -7,12 +7,13 @@ const JobDetails = () => {
 
     const jobs = useLoaderData();
     const {id} = useParams();
-    const job = jobs.find(job => job.id == id);
+    const idint= parseInt(id);
+    const job = jobs.find(job => job.id === idint);
     console.log(job);
 
 
     const notify = () => {
-        savejobapplication(id);
+        savejobapplication(idint);
         toast(`You have applied to ${job.job_title}`);
     }
 
