@@ -7,41 +7,51 @@ const AppliedJobs = () => {
 
     const [appliedjobs, setappliedjobs] = useState([]);
 
+    const [displayjob, setdisplayjob] = useState([]);
+
+    const handleJobsfilter = filter => {
+        if (filter === "all") {
+            setdisplayjob(appliedjobs);
+        } else if (filter === "remote") {
+            const remotejobs = appliedjobs.filter(job => job.remote_or_onsite === "Remote");
+            setdisplayjob(remotejobs);
+        } else if (filter === "onsite") {
+            const onsitejobs = appliedjobs.filter(job => job.remote_or_onsite === "Onsite");
+            setdisplayjob(onsitejobs);
+        }
+    }
 
     useEffect(() => {
         const storedjobids = getstoredjobapplication();
         if (jobs.length > 0) {
             const jobsapplied = jobs.filter(job => storedjobids.includes(job.id));
             setappliedjobs(jobsapplied);
+            setdisplayjob(jobsapplied);
         }
-    }, [jobs]); // Added 'jobs' as a dependency
+    }, [jobs]);
 
     return (
         <div>
-
-            <h1>Applied Jobs:{appliedjobs.length}</h1>
+            <h1>Applied Jobs: {displayjob.length}</h1>
             <div className="flex justify-end">
                 <details className="dropdown">
                     <summary className="btn m-1">Job Filter</summary>
                     <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow right-0 ml-auto">
-                        <li><a>All</a></li>
-                        <li><a>Remote</a></li>
-                        <li><a>Onsite</a></li>
+                        <li onClick={() => handleJobsfilter("all")}><a>All</a></li>
+                        <li onClick={() => handleJobsfilter("remote")}><a>Remote</a></li>
+                        <li onClick={() => handleJobsfilter("onsite")}><a>Onsite</a></li>
                     </ul>
                 </details>
             </div>
 
             <div>
-                {
-                    appliedjobs.map(appliedjob => <div key={appliedjob.id} >
+                {displayjob.map(appliedjob => (
+                    <div key={appliedjob.id}>
                         <h1>{appliedjob.job_title}</h1>
                         {/* <img src={appliedjob.logo} alt="" /> */}
                         <h1>{appliedjob.remote_or_onsite}</h1>
-
                     </div>
-
-                    )
-                }
+                ))}
             </div>
         </div>
     );

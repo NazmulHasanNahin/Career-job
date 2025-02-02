@@ -1,19 +1,20 @@
 import { NavLink } from "react-router-dom";
 const Nav = () => {
 
+
     const commonnn = <>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/jobs">Jobs</NavLink></li>
-        <li><NavLink to="/applied">Applied Jobs</NavLink></li>
-        <li><NavLink to="/statistics">Statistics</NavLink></li>
-        <li><NavLink to="/blogs">Blogs</NavLink></li>
+        <li><NavLink className={({ isActive }) => (isActive ? "text-[#7e90fe] text-base" : "text-base")} to="/">Home</NavLink></li>
+        <li><NavLink className={({ isActive }) => (isActive ? "text-[#7e90fe] text-base" : "text-base")} to="/jobs">Jobs</NavLink></li>
+        <li><NavLink className={({ isActive }) => (isActive ? "text-[#7e90fe] text-base" : "text-base")} to="/applied">Applied Jobs</NavLink></li>
+        <li><NavLink className={({ isActive }) => (isActive ? "text-[#7e90fe] text-base" : "text-base")} to="/statistics">Statistics</NavLink></li>
+        <li><NavLink className={({ isActive }) => (isActive ? "text-[#7e90fe] text-base" : "text-base")} to="/blogs">Blogs</NavLink></li>
     </>
 
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                    <div tabIndex={0} role="button" className=" btn-neutral lg:hidden">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-5 w-5"
@@ -33,7 +34,7 @@ const Nav = () => {
                         {commonnn}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">CareerHub</a>
+                <button className="font-bold bg-white text-[#191919]  text-2xl">CareerHub</button>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -42,7 +43,9 @@ const Nav = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Star Applying</a>
+                <div className="p-2 bg-gradient-to-r from-[#7e90fe] to-[#9873ff] rounded-lg justify-start items-start gap-2.5 inline-flex">
+                    <div className="text-white text-base font-bold">Start Applying</div>
+                </div>
             </div>
         </div>
     );
