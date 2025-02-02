@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Job from "../Job/Job"; // Import Job Component
+import Job from "../Job/Job"; 
 
 const FeaturedJobs = () => {
     const [jobs, setJobs] = useState([]);

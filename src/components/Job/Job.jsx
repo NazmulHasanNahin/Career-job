@@ -1,6 +1,6 @@
 import { IoLocationOutline } from "react-icons/io5";
 import { HiOutlineCurrencyDollar } from "react-icons/hi";
-import { Link } from "react-router-dom"; // Corrected the import for `Link`
+import { Link } from "react-router-dom";
 
 const Job = ({ job }) => {
     const { id, logo, job_title, job_type, location, remote_or_onsite, company_name, salary } = job;
