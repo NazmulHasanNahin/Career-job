@@ -1,37 +1,38 @@
 import { IoLocationOutline } from "react-icons/io5";
 import { HiOutlineCurrencyDollar } from "react-icons/hi";
-import { Link } from "react-router";
-
+import { Link } from "react-router-dom"; // Corrected the import for `Link`
 
 const Job = ({ job }) => {
-    const { id,logo, job_title, job_type, location, remote_or_onsite, company_name, salary } = job;
+    const { id, logo, job_title, job_type, location, remote_or_onsite, company_name, salary } = job;
     return (
-        <div>
-            <div className="card card-compact bg-base-100 shadow-xl">
-                <figure>
-                    <img
-                        src={logo}
-                        alt="Shoes" />
+        <div className="p-4">
+            <div className="mt-4 bg-white border-2 border-dashed border-gray-300 rounded-lg p-6 md:p-10">
+                <figure className="flex items-start mb-4">
+                    <img src={logo} alt={job_title} className="w-[150px] h-[50px] object-contain" />
                 </figure>
-                <div className="card-body">
-                    <h2 className="card-title">{job_title}</h2>
-                    <p>{company_name}</p>
-                    <div >
-                        <button className="border-2 px-4 py-2 mr-3 rounded border-[#7e90fe]">{remote_or_onsite}</button>
-                        <button className="border-2 px-4 py-2 border-[#7e90fe] rounded">{job_type}</button>
+                <div className="text-left">
+                    <h2 className="text-2xl font-bold text-[#191919] mb-2">{job_title}</h2>
+                    <p className="text-xl text-[#7e90fe] mb-4">{company_name}</p>
+                    <div className="flex gap-3 mb-4">
+                        <button className="border-2 px-4 py-2 rounded border-[#7e90fe] text-[#7e90fe] font-medium">
+                            {remote_or_onsite}
+                        </button>
+                        <button className="border-2 px-4 py-2 rounded border-[#7e90fe] text-[#7e90fe] font-medium">
+                            {job_type}
+                        </button>
                     </div>
-                    <div className="flex my-2">
-                        <div className="flex mr-3">
-                            <IoLocationOutline className="text-xl mr-1" /> {location}
+                    <div className="flex gap-6 items-center mb-6 text-sm text-[#777]">
+                        <div className="flex items-center">
+                            <IoLocationOutline className="text-lg mr-1" /> {location}
                         </div>
-                        <div className="flex">
-                            <HiOutlineCurrencyDollar className="text-xl mr-1" /> {salary}
+                        <div className="flex items-center">
+                            <HiOutlineCurrencyDollar className="text-lg mr-1" /> {salary}
                         </div>
                     </div>
                     <Link to={`/job/${id}`}>
-                        <div className="card-actions">
-                            <div className="h-[49px] px-[18px] py-[11px] bg-gradient-to-r from-[#7e90fe] to-[#9873ff] rounded justify-start items-start gap-2.5 inline-flex">
-                                <button className="text-white text-xl font-extrabold font-['Manrope']">View Details</button>
+                        <div className="mt-4">
+                            <div className="inline-block px-6 py-3 bg-gradient-to-r from-[#7e90fe] to-[#9873ff] rounded-lg">
+                                <button className="text-white text-lg font-bold">View Details</button>
                             </div>
                         </div>
                     </Link>
