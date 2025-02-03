@@ -6,8 +6,6 @@ const Nav = () => {
         <li><NavLink className={({ isActive }) => (isActive ? "text-[#7e90fe] text-base" : "text-base")} to="/">Home</NavLink></li>
         <li><NavLink className={({ isActive }) => (isActive ? "text-[#7e90fe] text-base" : "text-base")} to="/jobs">Jobs</NavLink></li>
         <li><NavLink className={({ isActive }) => (isActive ? "text-[#7e90fe] text-base" : "text-base")} to="/applied">Applied Jobs</NavLink></li>
-        <li><NavLink className={({ isActive }) => (isActive ? "text-[#7e90fe] text-base" : "text-base")} to="/statistics">Statistics</NavLink></li>
-        <li><NavLink className={({ isActive }) => (isActive ? "text-[#7e90fe] text-base" : "text-base")} to="/blogs">Blogs</NavLink></li>
     </>
 
     return (
